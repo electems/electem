@@ -1,5 +1,5 @@
 # electem
-# Basic CRUD App with Angular 5.0 and Spring Boot 2.0
+# Basic CRUD App with Angular 5.0 and Spring Boot 2.0 with JMS and Elastic Search
  
 This example app shows how to build a basic CRUD app with Spring Boot 2.0, Spring Data, and Angular 5.0.
 
