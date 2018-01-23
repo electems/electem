@@ -18,8 +18,6 @@ import org.springframework.jms.support.converter.MessageType;
 
 import com.electem.product.repo.CustomerRepository;
 
-
-
 @EnableJms
 @ComponentScan
 @SpringBootApplication

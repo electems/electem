@@ -15,11 +15,19 @@ public class CustomerService {
 	@Autowired
 	CustomerRepository customerRepository;
 	
+	/**
+	 * @param customer
+	 * @return Following Function saves the Entity to Postgres Db
+	 */
 	public Customer saveCustomer(Customer customer){
 		customer = customerRepository.save(customer);
 		return customer;
 	}
 	
+	/**
+	 * 
+	 * @return all the customer from the database
+	 */
 	public List<Customer> allList(){
 		List<Customer> customers = new ArrayList<Customer>();
 		for(Customer cust : customerRepository.findAll()){
@@ -28,11 +36,18 @@ public class CustomerService {
 		return customers;
 	}
 	
+	/**
+	 * @param id
+	 * @return Get single customer by ID
+	 */
 	public Customer findById(Long id){		
 		Customer customer = customerRepository.findOne(id);		
 		return customer;
 	}
 	
+	/**
+	 * @return Get single customer by Last Name
+	 */
 	public  List<Customer> fetchDataByLastName(String lastName){		
 		List<Customer> customers = new ArrayList<Customer>();
 		for(Customer cust : customerRepository.findByLastName(lastName)){

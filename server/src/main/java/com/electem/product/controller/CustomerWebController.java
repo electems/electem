@@ -19,6 +19,11 @@ import com.electem.product.model.Customer;
 import com.electem.product.service.CustomerElasticService;
 import com.electem.product.service.CustomerService;
 
+/**
+ * 
+ * @author Vinzy
+ * Following class makes HTTP rest call. Used in client side.
+ */
 @RestController
 public class CustomerWebController {
 	
@@ -42,8 +47,7 @@ public class CustomerWebController {
 	    jmsTemplate.convertAndSend("OrderTransactionQueue", customer);
 		
 		return new ResponseEntity<Customer>(customer, HttpStatus.OK);
-	}
-	
+	}	
 	
 	@RequestMapping(value = "/findall",
             method = RequestMethod.GET,

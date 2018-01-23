@@ -8,6 +8,12 @@ import com.electem.product.elastic.model.CustomerElasticModel;
 import com.electem.product.model.Customer;
 import com.electem.product.service.CustomerElasticService;
 
+/**
+ * 
+ * @author Vinzy
+ * Following code is for JMS: The Recived entity is saved to Elastic Database.
+ *
+ */
 @Component
 public class Receiver {
 	

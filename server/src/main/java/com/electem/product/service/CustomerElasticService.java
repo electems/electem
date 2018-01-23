@@ -5,7 +5,7 @@ import java.util.List;
 import com.electem.product.elastic.model.CustomerElasticModel;
 
 /**
- * 
+ * @author Vinzy
  * Interface for the Elastic search model
  *
  */

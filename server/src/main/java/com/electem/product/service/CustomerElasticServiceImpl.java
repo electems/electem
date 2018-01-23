@@ -9,6 +9,11 @@ import org.springframework.stereotype.Service;
 import com.electem.product.elastic.model.CustomerElasticModel;
 import com.electem.product.repo.CustomerElasticRepository;
 
+/**
+ * 
+ * @author Vinzy
+ * Following snippet is for Elastic database.
+ */
 @Service
 public class CustomerElasticServiceImpl implements CustomerElasticService {
 	
