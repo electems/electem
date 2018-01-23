@@ -1,7 +1,7 @@
 # electem
-# Basic CRUD App with Angular 5.0 and Spring Boot 2.0 with JMS and Elastic Search
+# CRUD App with Angular 5.0 and Spring Boot with JMS and Elastic Search
  
-This example app shows how to build a basic CRUD app with Spring Boot 2.0, Spring Data, and Angular 5.0.
+This example app shows how to build a CRUD app with Spring Boot,  Spring Data, and Angular 5.0. This App Uses Elastic Search to load the list. JMS has been used to save the entity to Elastic Database 
 
 To install all of its dependencies and start each app, follow the instructions below.
 
