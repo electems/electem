@@ -1,22 +1,15 @@
-package com.electem.product.model;
-
-import java.io.Serializable;
+package com.electem.product.elastic.model;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(name = "customer")
-public class Customer implements Serializable {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
 
-	private static final long serialVersionUID = -3009157732242241606L;
+@Document(indexName = "customer", type = "customer", shards = 1, replicas = 0, refreshInterval = "-1")
+public class CustomerElasticModel {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private String id;
 
 	@Column(name = "firstname")
 	private String firstName;
@@ -24,20 +17,19 @@ public class Customer implements Serializable {
 	@Column(name = "lastname")
 	private String lastName;
 
-	public Customer() {
+	public CustomerElasticModel() {
 	}
 
-	public Customer(String firstName, String lastName) {
+	public CustomerElasticModel(String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
-	
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
