@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Order Summary</title>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>  
+	
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+	  
+		<style>
+			table { border-collapse: collapse;}
+			table, td, th { border: 1px solid #3F51B5; padding: 10px; }
+			thead { display: table-header-group; padding: 10px; }
+			tfoot { display: table-row-group }
+			tr { page-break-inside: avoid }
+		</style>
+	</head>
+	<body>
+		<center>
+			<table>
+				<thead>
+					<tr>
+						<td colspan="5">
+							<span><img th:src="@{http://localhost:8080/assets/img/electems_logo.png}"/></span>
+							<span style="font-size: 30px;padding-left: 120px;">Payment Details</span>
+							<span style="float: right;">
+								Invoice #: <span th:text="${orderId}"></span><br/>
+								Date: <span th:text="${orderDate}"></span>
+							</span>
+						</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="5">
+							<table style="border: none;">
+								<tr>
+									<td style="width: 308px;border: none;">
+										<span><b>From,</b><br /><br/>
+											Electem Business Solutions LLP <br />
+											NO 8/1, Bannerghatta Main Road <br />
+											DRC Post, Bangalore 560029 <br />
+											+ (678)-8949876
+										</span>
+									</td>
+							
+									<td style="width: 309px;border: none;">
+										<span style="float: right;"><b>To,</b><br /><br/>
+											<span th:text="${name}"></span><br/>
+											<span th:text="${address}"></span><br/>
+											<span th:text="${contactNum}"></span><br/>
+										</span>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<th>SI.NO</th>
+						<th>ITEM DESCRIPTION</th>
+						<th>QUANTITY</th>
+						<th>UNIT RATE</th>
+						<th>AMOUNT</th>						
+					</tr>
+					<tr th:each="val,iter: ${analogData}">		
+						<td th:text="${iter.index +1}"></td>
+						<td th:text="${val.getItemName()}"></td>
+						<td th:text="${val.getItemQuantity()}"></td>
+						<td th:text="${val.getItemUnitRate()}"></td>
+						<td th:with="result=${val.getItemUnitRate() * val.getItemQuantity()}">
+							₹ <span th:text="${result}"></span>
+						</td>						
+					</tr>
+					<tr>
+						<td colspan="4" style="text-align: right;">Installation Cost</td>
+						 <td th:text="${installCost}"></td>
+					</tr>
+					<tr>
+						<td colspan="4" style="text-align: right;">Total Cost</td>
+						 <td th:text="${totalSum}"></td>
+					</tr>
+					<tr>
+						<td colspan="4" style="text-align: right;">Taxes</td>
+						 <td th:text="${taxes}"></td>
+					</tr>
+					<tr>
+						<td colspan="4" style="text-align: right;">GrandTotal</td>
+						 <td th:text="${grandTotal}"></td>
+					</tr>
+					<tr>
+						<td colspan="5">
+							<center>In Words: 
+								<span th:text="${totalAmountInWords}" style="font-weight: bold; text-transform: capitalize;"></span>
+							</center>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="5" style="background-color: #c1e1eb;">
+							<center>Thank you for your business!</center>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</center>
+	</body>
+ </html>

@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	  <title>Dashboard</title>
+
+	  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>  
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
+		  
+	  <link href="https://rawgit.com/angular/material2-builds/master/prebuilt-themes/indigo-pink.css" rel="stylesheet"/>
+	  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+	  
+	  <style>
+		table { border-collapse: collapse; }
+		table, td, th { border: 1px solid black; }
+	  	thead { display: table-header-group }
+		tfoot { display: table-row-group }
+		tr { page-break-inside: avoid }
+	  </style>
+	 </head>
+	 <body>
+		 <div style="width:800px;height:200;">
+			<canvas id="myChart" style="width:800px;height:200;"></canvas>
+		</div>
+		<table>
+                <thead>
+					<tr>
+						<th th:text="${unit}">Date</th>
+						<th th:text="${tableColumns.getA0()}">A0</th>
+						<th th:text="${tableColumns.getA1()}">A1</th>
+						<th th:text="${tableColumns.getA2()}">A2</th>
+						<th th:text="${tableColumns.getA3()}">A3</th>
+						<th th:text="${tableColumns.getA4()}">A4</th>
+						<th th:text="${tableColumns.getA5()}">A5</th>
+						<th th:text="${tableColumns.getA6()}">A6</th>
+						<th th:text="${tableColumns.getA7()}">A7</th>
+						<th th:text="${tableColumns.getA8()}">A8</th>
+						<th th:text="${tableColumns.getA9()}">A9</th>
+						<th th:text="${tableColumns.getA10()}">A10</th>
+						<th th:text="${tableColumns.getA11()}">A11</th>
+						<th th:text="${tableColumns.getA12()}">A12</th>
+						<th th:text="${tableColumns.getA13()}">A13</th>
+						<th th:text="${tableColumns.getA14()}">A14</th>
+						<th th:text="${tableColumns.getA15()}">A15</th>
+					</tr>
+                </thead>
+                <tbody>
+					 <tr th:each="val: ${analogData}">
+						
+						<td th:text="${val[0]}" ></td>
+						<td th:text="${val[1]}" ></td>
+						<td th:text="${val[2]}" ></td>
+						<td th:text="${val[3]}" ></td>
+						<td th:text="${val[4]}" ></td>
+						<td th:text="${val[5]}" ></td>
+						<td th:text="${val[6]}" ></td>
+						<td th:text="${val[7]}" ></td>
+						<td th:text="${val[8]}" ></td>
+						<td th:text="${val[9]}" ></td>
+						<td th:text="${val[10]}" ></td>
+						<td th:text="${val[11]}" ></td>
+						<td th:text="${val[12]}" ></td>
+						<td th:text="${val[13]}" ></td>
+						<td th:text="${val[14]}" ></td>
+						<td th:text="${val[15]}" ></td>
+						<td th:text="${val[16]}" ></td>
+						
+					</tr>
+                </tbody>
+		</table>
+		<div th:remove="tag" th:utext="${graphStript}"></div>
+	 </body>
+ </html>
